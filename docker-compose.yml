@@ -1,0 +1,22 @@
+version: "3.3"
+
+services:
+  komga:
+    image: gotson/komga
+    container_name: komga
+    env_file: .env
+    volumes:
+      - type: bind
+        source: ./config
+        target: /config
+      - type: bind
+        source: $DATA_FOLDER
+        target: /data
+      - type: bind
+        source: /etc/timezon
+        target: /etc/timezone
+        read_only: true
+    ports:
+      - 25600:25600
+    user: "$PUID:1000"
+    restart: unless-stopped

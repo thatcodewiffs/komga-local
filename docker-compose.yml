@@ -13,7 +13,7 @@ services:
         source: $DATA_FOLDER
         target: /data
       - type: bind
-        source: /etc/timezon
+        source: /etc/timezone
         target: /etc/timezone
         read_only: true
     ports:
